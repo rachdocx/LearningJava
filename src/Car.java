@@ -20,6 +20,12 @@ public class Car {
         this.color = other.color;
         this.price = other.price;
         this.year = other.year;
+        this.parts = Arrays.copyOf(other.parts, other.parts.length); //!!!
+    }
+
+    //getters
+    public String[] getParts(){
+        return Arrays.copyOf(this.parts, this.parts.length);
     }
     public String getMake() {
         return make;
@@ -33,6 +39,7 @@ public class Car {
         return year;
     }
 
+    //setters
     public void setMake(String make) {
         this.make = make;
     }
@@ -53,9 +60,17 @@ public class Car {
         return color;
     }
 
+    public void setParts(String[] parts){
+        this.parts = Arrays.copyOf(parts, parts.length);
+    }
     public void drive(){
         System.out.println("You bought the beautiful " + this.year + " " + this.color + " " + this.make + " for " + this.price +".");
         System.out.println("Please drive your car to the nearest exit\n");
     }
 
+    public String toString(){
+        return "Make: " + this.make + ".\n" + "Price: " + this.price + ".\n" + "Year: " + this.year + ",\n" + "Color: " + this.color + ".\n" + "Parts: " + Arrays.toString(parts) + " \n";
+    }
 }
+
+
