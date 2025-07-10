@@ -39,7 +39,6 @@ public class Item {
         this.quantity = quantity;
     }
 
-    @Override
     public String toString() {
         return "Item{" +
                 "name='" + name + '\'' +
