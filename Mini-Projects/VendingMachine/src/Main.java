@@ -13,5 +13,7 @@ public class Main{
         temp.setPrice(2.99);
         machine.setItem(temp,1,1);
         System.out.println(machine.getItem(1,1));
+        System.out.println(machine.dispense(1,1));
+        System.out.println(machine.getItem(1,1));
     }
 }
