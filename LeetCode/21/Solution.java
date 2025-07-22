@@ -9,27 +9,24 @@
  * }
  */
 class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode c1 = list1;
-        ListNode c2 = list2;
-        ListNode res = new ListNode();
-        ListNode cur = res;
-        while (c1 != null && c2 != null){
-            if(c1.val < c2.val){
-                cur.next = c1;
-                c1 = c1.next;
-            }
-            else if(c1.val >= c2.val){
-                cur.next = c2;
-                c2 = c2.next;
-            }
-            cur = cur.next;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode();
+        ListNode current = dummy;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry != 0) {
+            int v1 = (l1 != null) ? l1.val : 0;
+            int v2 = (l2 != null) ? l2.val : 0;
+
+            int sum = v1 + v2 + carry;
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
+            current = current.next;
+
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
         }
-        if (c1 != null) {
-            cur.next = c1;
-        } else {
-            cur.next = c2;
-        }
-        return res.next;
+
+        return dummy.next;
     }
 }
